@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#e86f5d">
+    <meta name="description" content="Une mission et deux collections de 50 surprises pour les 50 ans de Lali.">
+    <title>Mission canapé pour Lali</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main>
+      <section id="intro-screen" class="screen intro-screen" aria-labelledby="intro-title">
+        <div class="intro-copy">
+          <p class="eyebrow">Dossier ultra confidentiel</p>
+          <h1 id="intro-title">Mission canapé<br>pour Lali</h1>
+          <p class="intro-text">
+            Aurélie, une récompense d'anniversaire t'attend. Mais avant de l'ouvrir,
+            il faut préparer la soirée parfaite.
+          </p>
+          <button id="start-button" class="primary-button" type="button">
+            Commencer la mission
+            <span aria-hidden="true">&#8594;</span>
+          </button>
+          <button id="skip-to-gifts" class="text-button" type="button" hidden>
+            Retourner à mes surprises
+          </button>
+        </div>
+
+        <div class="portrait-stage" aria-hidden="true">
+          <div class="portrait-burst burst-one"></div>
+          <div class="portrait-burst burst-two"></div>
+          <div class="portrait-frame">
+            <img src="assets/lali-portrait.jpg" alt="">
+          </div>
+          <span class="portrait-label">AGENT LALI</span>
+          <span class="floating-clue clue-one">50</span>
+          <span class="floating-clue clue-two">&#9829;</span>
+          <span class="floating-clue clue-three">?</span>
+        </div>
+      </section>
+
+      <section id="game-screen" class="screen game-screen" aria-labelledby="game-title" hidden>
+        <header class="game-header">
+          <div>
+            <p class="eyebrow">Mission en cours</p>
+            <h2 id="game-title">Prépare la soirée parfaite</h2>
+          </div>
+          <div class="relax-meter" aria-live="polite">
+            <div class="meter-copy">
+              <span>Jauge de détente</span>
+              <strong><span id="score-value">0</span> / 100</strong>
+            </div>
+            <div class="meter-track" aria-hidden="true">
+              <span id="meter-fill"></span>
+            </div>
+          </div>
+        </header>
+
+        <p class="game-instruction">
+          Attrape les petits plaisirs. Laisse passer les corvées.
+        </p>
+
+        <div id="game-arena" class="game-arena" tabindex="0" aria-label="Zone de jeu. Utilise les flèches ou déplace ton doigt pour bouger Lali.">
+          <div class="room-window" aria-hidden="true">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="room-lamp" aria-hidden="true">
+            <span></span>
+          </div>
+          <div class="picture-wall" aria-hidden="true">
+            <span>T + A</span>
+            <span>G + C</span>
+          </div>
+          <div id="falling-layer" class="falling-layer" aria-hidden="true"></div>
+          <div id="player" class="player" aria-hidden="true">
+            <div class="player-photo"><img src="assets/lali-portrait.jpg" alt=""></div>
+            <div class="player-couch"><span></span></div>
+          </div>
+          <div id="game-toast" class="game-toast" aria-live="polite"></div>
+        </div>
+
+        <div class="touch-controls" aria-label="Commandes tactiles">
+          <button id="move-left" type="button" aria-label="Aller à gauche">&#8592;</button>
+          <span>Déplace Lali</span>
+          <button id="move-right" type="button" aria-label="Aller à droite">&#8594;</button>
+        </div>
+      </section>
+
+      <section id="win-screen" class="screen win-screen" aria-labelledby="win-title" hidden>
+        <div class="win-photo" role="img" aria-label="Portrait d'Aurélie"></div>
+        <div class="win-copy">
+          <p class="eyebrow">Mission accomplie</p>
+          <h2 id="win-title">Bravo Lali !</h2>
+          <p>
+            Ta soirée parfaite est prête. Et pour tes 50 ans, Gabin a caché
+            <strong>2 collections de 50 surprises</strong> rien que pour toi.
+          </p>
+          <button id="open-gifts-button" class="primary-button" type="button">
+            Ouvrir ma boîte à surprises
+            <span aria-hidden="true">&#10022;</span>
+          </button>
+        </div>
+      </section>
+
+      <section id="gifts-screen" class="screen gifts-screen" aria-labelledby="gifts-title" hidden>
+        <header class="gifts-header">
+          <div class="mini-portrait"><img src="assets/lali-portrait.jpg" alt="Portrait d'Aurélie"></div>
+          <div>
+            <p class="eyebrow">La boîte de Lali</p>
+            <h2 id="gifts-title">50 ans, 2 × 50 surprises</h2>
+            <p>À découvrir tranquillement, aujourd'hui et tous les autres jours.</p>
+          </div>
+          <button id="replay-button" class="icon-button" type="button" title="Rejouer à Mission canapé" aria-label="Rejouer à Mission canapé">&#8635;</button>
+        </header>
+
+        <div id="category-grid" class="category-grid" aria-label="Choisir une boîte à surprises">
+          <button class="category-card coral" data-category="compliments" type="button">
+            <span class="category-icon" aria-hidden="true">&#10022;</span>
+            <span class="category-name">Petits mots pour toi</span>
+            <span class="category-description">Des choses sincères que Gabin ne dit pas assez</span>
+            <span class="category-counter"><strong>0</strong> / 50 découverts</span>
+          </button>
+          <button class="category-card yellow" data-category="treats" type="button">
+            <span class="category-icon" aria-hidden="true">&#9733;</span>
+            <span class="category-name">Petites gourmandises</span>
+            <span class="category-description">Des bons composés uniquement de tes préférés</span>
+            <span class="category-counter"><strong>0</strong> / 50 découverts</span>
+          </button>
+        </div>
+
+        <section id="generator-panel" class="generator-panel" aria-labelledby="generator-title" hidden>
+          <button id="close-generator" class="icon-button close-button" type="button" aria-label="Fermer">&#215;</button>
+          <p id="generator-kicker" class="eyebrow"></p>
+          <h3 id="generator-title"></h3>
+          <div id="surprise-paper" class="surprise-paper" aria-live="polite">
+            <span class="paper-number"></span>
+            <p id="surprise-text">Appuie sur le bouton pour découvrir une surprise.</p>
+            <span class="paper-signature">Pour Lali, avec amour</span>
+          </div>
+          <div class="generator-actions">
+            <button id="generate-button" class="primary-button" type="button">Découvrir une surprise</button>
+            <button id="collection-button" class="secondary-button" type="button" aria-expanded="false">Voir ma collection</button>
+          </div>
+          <div id="collection-panel" class="collection-panel" hidden>
+            <h4>Déjà découvert</h4>
+            <ol id="collection-list"></ol>
+          </div>
+        </section>
+
+        <footer class="gift-footer">
+          <p>Joyeux 50 ans Maman.</p>
+          <span>Avec tout mon amour, Gabin</span>
+        </footer>
+      </section>
+    </main>
+
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
